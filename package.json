@@ -1,0 +1,47 @@
+{
+  "name": "techhub.cafe",
+  "private": true,
+  "scripts": {
+    "dev": "cd src && next dev --webpack",
+    "build": "cd src && next build --webpack",
+    "start": "cd src && next start",
+    "lint": "cd src && eslint .",
+    "typecheck": "tsc -p src/tsconfig.json",
+    "format": "prettier --write .",
+    "dev:web": "cd src && next dev --webpack"
+  },
+  "dependencies": {
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "^2.96.0",
+    "@techhub/supabase": "file:packages/supabase",
+    "@techhub/types": "file:packages/types",
+    "canvas-confetti": "^1.9.4",
+    "framer-motion": "^12.34.1",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.574.0",
+    "next": "latest",
+    "prism-react-renderer": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-swipeable": "^7.0.2",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles": "^3.9.1",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "latest",
+    "postcss": "latest",
+    "prettier": "latest",
+    "tailwindcss": "3.4.17",
+    "typescript": "latest"
+  }
+}

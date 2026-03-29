@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 255 255 255;
+    --text: 15 23 42;
+    --muted: 100 116 139;
+    --card: 248 250 252;
+    --border: 226 232 240;
+    --accent: 99 102 241;
+  }
+
+  .dark {
+    --bg: 2 6 23;
+    --text: 248 250 252;
+    --muted: 148 163 184;
+    --card: 15 23 42;
+    --border: 51 65 85;
+    --accent: 129 140 248;
+  }
+
+  body {
+    @apply bg-[rgb(var(--bg))] text-[rgb(var(--text))];
+  }
+}
+
+/* Background: grid drifts by one cell for seamless loop */
+@keyframes grid-shift {
+  to {
+    transform: translate(12px, 12px);
+  }
+}
+
+.animate-grid-shift {
+  transform-origin: 0 0;
+  animation: grid-shift 24s linear infinite;
+}
+
+/* Background: dashes trace along the circles */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash-flow {
+  animation: dash-flow 16s linear infinite;
+}
+
+/* Reverse direction for variety */
+.animate-dash-flow-reverse {
+  animation: dash-flow 18s linear infinite reverse;
+}
+
+/* Accent pulse for highlighted arcs — stronger glow */
+@keyframes accent-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-accent-pulse {
+  animation: accent-pulse 2.5s ease-in-out infinite;
+}
+
+
