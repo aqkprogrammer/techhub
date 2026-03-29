@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "cd src && next dev --webpack",
-    "build": "cd src && next build --webpack",
+    "build": "next build --webpack",
     "start": "cd src && next start",
     "lint": "cd src && eslint .",
     "typecheck": "tsc -p src/tsconfig.json",
