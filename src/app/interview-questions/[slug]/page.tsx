@@ -61,14 +61,12 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
       openGraph: {
         title,
         description,
-        type: 'article',
+        type: 'article' as const,
         siteName: 'techhub.cafe',
         url: canonical,
-        article: {
-          modifiedTime: data.question.updatedAt,
-          publishedTime: data.question.createdAt,
-          tags: [data.topic.name, data.question.difficulty],
-        },
+        publishedTime: data.question.createdAt,
+        modifiedTime: data.question.updatedAt,
+        tags: [data.topic.name, data.question.difficulty],
       },
       twitter: { card: 'summary_large_image', title, description },
       alternates: { canonical },
