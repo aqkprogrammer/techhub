@@ -56,18 +56,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }),
     );
 
-    const topicRoutes: MetadataRoute.Sitemap = ((topicsResponse.data ?? []) as TopicRow[])
-      .map((t) => {
-        const slug = t.slug?.trim() || (t.name ? slugify(t.name) : null);
-        if (!slug) return null;
-        return {
+    const topicRoutes: MetadataRoute.Sitemap = ((topicsResponse.data ?? []) as TopicRow[]).flatMap((t) => {
+      const slug = t.slug?.trim() || (t.name ? slugify(t.name) : null);
+      if (!slug) return []; // empty array instead of null
+      return [
+        {
           url: `${SITE_URL}/interview-questions/${slug}`,
           lastModified: t.updated_at ? new Date(t.updated_at) : new Date(),
           changeFrequency: 'weekly' as const,
           priority: 0.75,
-        };
-      })
-      .filter((r): r is MetadataRoute.Sitemap[number] => r !== null);
+        },
+      ];
+    });
 
     return [...STATIC_ROUTES, ...topicRoutes, ...questionRoutes];
   } catch {
